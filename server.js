@@ -3,6 +3,7 @@ require("dotenv/config")
 
 //Importações de Modelos
 require("./src/models/Character")
+require("./src/models/Item")
 
 //App
 const express = require('express')
