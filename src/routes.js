@@ -1,8 +1,11 @@
 //Importações
 const express = require("express")
+const middlwares = require("./middlewares")
 const routes = express.Router()
-
 const CharacterController = require("./controllers/CharacterController")
+
+//Middleware para logar os requests
+routes.use(middlwares.logRequest)
 
 //Rotas (CRUD)
 routes.get("/character", CharacterController.showAll)
