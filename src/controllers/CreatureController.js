@@ -35,7 +35,7 @@ module.exports = {
   },
 
   async delete(req, res) {
-    const item = await Creature.findByIdAndRemove(req.params.id)
+    const creature = await Creature.findByIdAndRemove(req.params.id)
 
     logResponse(creature)
     return res.send(creature)

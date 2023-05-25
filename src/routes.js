@@ -4,6 +4,7 @@ const middlwares = require("./middlewares")
 const routes = express.Router()
 const CharacterController = require("./controllers/CharacterController")
 const ItemController = require("./controllers/ItemController")
+const CreatureController = require("./controllers/CreatureController")
 
 //Middleware para logar os requests
 routes.use(middlwares.logRequest)
@@ -21,9 +22,11 @@ routes.get("/item/:id", ItemController.read)
 routes.put("/item/:id", ItemController.update)
 routes.delete("/item/:id", ItemController.delete)
 
-routes.get("/teste", (req, res) => {
-    return res.send("deu bom")
-})
+routes.get("/creature", CreatureController.showAll)
+routes.post("/creature", CreatureController.create)
+routes.get("/creature/:id", CreatureController.read)
+routes.put("/creature/:id", CreatureController.update)
+routes.delete("/creature/:id", CreatureController.delete)
 
 //Exportando as rotas para serem usadas no server.js
 module.exports = routes
